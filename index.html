@@ -2,163 +2,165 @@
 <html lang="en">
 
 <head>
+	<title>Currency Converter</title>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Bootstrap Elegant Modal Login Modal Form with Avatar Icon</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Javascript -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	 crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style type="text/css">
-		body {
-			font-family: 'Varela Round', sans-serif;
+
+	<style>
+		html {
+			font-size: 20px;
 		}
 
-		.modal-login {
-			color: #636363;
-			width: 350px;
+		.panel {
+			background: #333333;
+			border: solid white;
 		}
 
-		.modal-login .modal-content {
-			padding: 20px;
-			border-radius: 5px;
-			border: none;
+		.results {
+			font-size: 1em;
+			color: #FFFFFF;
 		}
 
-		.modal-login .modal-header {
-			border-bottom: none;
-			position: relative;
-			justify-content: center;
+		.dropdown {
+			margin-bottom: 50px;
 		}
 
-		.modal-login h4 {
-			text-align: center;
-			font-size: 26px;
-			margin: 30px 0 -15px;
-		}
-
-		.modal-login .form-control:focus {
-			border-color: #70c5c0;
-		}
-
-		.modal-login .form-control,
-		.modal-login .btn {
-			min-height: 40px;
-			border-radius: 3px;
-		}
-
-		.modal-login .close {
-			position: absolute;
-			top: -5px;
-			right: -5px;
-		}
-
-		.modal-login .modal-footer {
-			background: #ecf0f1;
-			border-color: #dee4e7;
-			text-align: center;
-			justify-content: center;
-			margin: 0 -20px -20px;
-			border-radius: 5px;
-			font-size: 13px;
-		}
-
-		.modal-login .modal-footer a {
-			color: #999;
-		}
-
-		.modal-login .avatar {
-			position: absolute;
-			margin: 0 auto;
-			left: 0;
-			right: 0;
-			top: -70px;
-			width: 95px;
-			height: 95px;
-			border-radius: 50%;
-			z-index: 9;
-			background: #60c7c1;
-			padding: 15px;
-			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-		}
-
-		.modal-login .avatar img {
-			width: 100%;
-		}
-
-		.modal-login.modal-dialog {
-			margin-top: 80px;
-		}
-
-		.modal-login .btn {
-			color: #fff;
-			border-radius: 4px;
-			background: #60c7c1;
-			text-decoration: none;
-			transition: all 0.4s;
-			line-height: normal;
-			border: none;
-		}
-
-		.modal-login .btn:hover,
-		.modal-login .btn:focus {
-			background: #45aba6;
-			outline: none;
-		}
-
-		.trigger-btn {
+		.inline-block {
 			display: inline-block;
-			margin: 100px auto;
+		}
+
+		.center {
+			width: 90%;
+			margin: 0 auto 30px;
+		}
+
+		label {
+			color: white;
 		}
 	</style>
+
 </head>
 
 <body>
-	<div class="text-center">
-		<!-- Button HTML (to Trigger Modal) -->
-		<a href="#myModal" class="trigger-btn" data-toggle="modal">Click to Open Login Modal</a>
-	</div>
+	<!-- Navigation Bar -->
+	<nav class="menu navbar-default navbar-menu">
+		<div class="container">
+			<div class="menu-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand">Currency Converter Website</a>
+			</div>
 
-	<!-- Modal HTML -->
-	<div id="myModal" class="modal fade">
-		<div class="modal-dialog modal-login">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div class="avatar">
-						<img src="/examples/images/avatar.png" alt="Avatar">
+		</div>
+	</nav>
+	<!-- End of navbar-->
+	<br>
+	<br>
+	<br>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-primary text-center">
+					<div class="panel-heading">
+						<h4 class="panel-title">Currency Converter</h4>
 					</div>
-					<h4 class="modal-title">Member Login</h4>
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-				</div>
-				<div class="modal-body">
-					<form action="/examples/actions/confirmation.php" method="post">
-						<div class="form-group">
-							<input type="text" class="form-control" name="username" placeholder="Username" required="required">
-						</div>
-						<div class="form-group">
-							<input type="password" class="form-control" name="password" placeholder="Password" required="required">
-						</div>
-						<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<a href="#">Forgot Password?</a>
+					<div class="error">
+						Please enter numeric value
+					</div>
+					<div class="panel-body">
+						<form class="form-vertical">
+
+							<div class="form-group center">
+								<input type="number" class="amount form-control" placeholder="Enter Currency" min="1" id="inputAmount">
+							</div>
+
+							<div class="form-group inline-block">
+								<label id="gbp">
+									<span>
+										<img src="https://image.flaticon.com/icons/svg/330/330425.svg" width="40px" height="30px">
+									</span>
+									0 £ (British Pound) = 
+								</label>
+
+							</div>
+
+							<div class="form-group inline-block">
+								<label id="usd">
+									<span>
+										<img src="https://image.flaticon.com/icons/svg/330/330459.svg" width="40px" height="30px">
+									</span>
+									0 $ (US Dollar)
+								</label>
+
+							</div>
+
+						</form>
+						
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+
+
+	<!-- Money pics -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="thumbnail">
+					<a href="http://a57.foxnews.com/images.foxnews.com/content/fox-news/tech/2016/11/30/u-k-s-first-ever-plastic-5-bill-has-really-upset-vegans/_jcr_content/par/featured_image/media-0.img.jpg/876/493/1480522867287.jpg"
+					 target="_blank">
+						<img src="http://a57.foxnews.com/images.foxnews.com/content/fox-news/tech/2016/11/30/u-k-s-first-ever-plastic-5-bill-has-really-upset-vegans/_jcr_content/par/featured_image/media-0.img.jpg/876/493/1480522867287.jpg"
+						 alt="Pic1" style="width:100%">
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="thumbnail">
+					<a href="https://w-dog.net/wallpapers/12/1/458166855232810/money-euro-euro-currency-notes-close-up.jpg" target="_blank">
+						<img src="https://w-dog.net/wallpapers/12/1/458166855232810/money-euro-euro-currency-notes-close-up.jpg" alt="Pic2" style="width:100%">
+					</a>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="thumbnail">
+					<a href="https://cdn.shutterstock.com/shutterstock/videos/7477096/thumb/9.jpg" target="_blank">
+						<img src="https://cdn.shutterstock.com/shutterstock/videos/7477096/thumb/9.jpg" alt="Pic3" style="width:100%">
+				</div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- End of money pics -->
+
+
+
 </body>
 
+</html>
 
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
 
 <script>
-
+		$("#gbp").val(` 0 £ (British Pound) = `);
+	  $("#usd").val(` 0 $ (US Dollar)`);
 	var firebaseConfig = {
 		apiKey: "AIzaSyCRUuNvqEtzy3KP8Uy-gs6A3PEL_LErOx0",
 		authDomain: "atvconvertor-29be3.firebaseapp.com",
@@ -172,12 +174,16 @@
 	firebase.initializeApp(firebaseConfig);
 
 	var db = firebase.firestore();
+	let covertRate = 0;
+	let inputAmount = $("input:number").val();
 	db.collection("currency").get().then((querySnapshot) => {
 		querySnapshot.forEach((doc) => {
-			console.log(`${doc.rate}`);
-			alert(doc.rate);
+			covertRate = doc.data().rate;
 		});
-	});	
+	});
+	let covertedRate = inputAmount * covertRate;
+
+
 </script>
 
 </html>
