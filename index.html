@@ -9,9 +9,8 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- Javascript -->
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-	 crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<style>
@@ -91,7 +90,7 @@
 									<span>
 										<img src="https://image.flaticon.com/icons/svg/330/330425.svg" width="40px" height="30px">
 									</span>
-									0 £ (British Pound) = 
+									0 £ (British Pound) =
 								</label>
 
 							</div>
@@ -107,14 +106,14 @@
 							</div>
 
 						</form>
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+	<!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script> -->
 
 
 	<!-- Money pics -->
@@ -159,8 +158,7 @@
 <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
 
 <script>
-		$("#gbp").val(` 0 £ (British Pound) = `);
-	  $("#usd").val(` 0 $ (US Dollar)`);
+
 	var firebaseConfig = {
 		apiKey: "AIzaSyCRUuNvqEtzy3KP8Uy-gs6A3PEL_LErOx0",
 		authDomain: "atvconvertor-29be3.firebaseapp.com",
@@ -175,13 +173,44 @@
 
 	var db = firebase.firestore();
 	let covertRate = 0;
-	let inputAmount = $("input:number").val();
+
 	db.collection("currency").get().then((querySnapshot) => {
 		querySnapshot.forEach((doc) => {
 			covertRate = doc.data().rate;
 		});
 	});
+	$("#gbp").empty();
+	$("#usd").empty();
+	$("#gbp").append(`
+		<span>
+			<img src="https://image.flaticon.com/icons/svg/330/330425.svg" width="40px" height="30px">
+		</span>
+		0 £ (British Pound) =
+		`);
+	$("#usd").append(`
+		<span>
+			<img src="https://image.flaticon.com/icons/svg/330/330459.svg" width="40px" height="30px">
+		</span>
+		0 $ (US Dollar)
+		`);
 	let covertedRate = inputAmount * covertRate;
+	$("#inputAmount").keyup(function (event) {
+		var inputAmount = this.value == "" ? 0 : this.value;
+		$("#gbp").empty();
+		$("#usd").empty();
+		$("#gbp").append(`
+		<span>
+			<img src="https://image.flaticon.com/icons/svg/330/330425.svg" width="40px" height="30px">
+		</span>
+		${inputAmount} £ (British Pound) =
+		`);
+		$("#usd").append(`
+		<span>
+			<img src="https://image.flaticon.com/icons/svg/330/330459.svg" width="40px" height="30px">
+		</span>
+		${covertRate * inputAmount} $ (US Dollar)
+		`);
+	});
 
 
 </script>
