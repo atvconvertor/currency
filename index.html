@@ -170,13 +170,16 @@
 		measurementId: "G-Z2DF70VNX9"
 	};
 	firebase.initializeApp(firebaseConfig);
+	const firebase = require("firebase");
+	// Required for side-effects
+	require("firebase/firestore");
 	var db = firebase.firestore();
 	db.collection("currency").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.rate}`);
-		alert(doc.rate);
-    });
-});	
+		querySnapshot.forEach((doc) => {
+			console.log(`${doc.rate}`);
+			alert(doc.rate);
+		});
+	});	
 </script>
 
 </html>
