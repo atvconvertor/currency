@@ -153,4 +153,30 @@
 	</div>
 </body>
 
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-analytics.js"></script>
+
+<script>
+
+	var firebaseConfig = {
+		apiKey: "AIzaSyCRUuNvqEtzy3KP8Uy-gs6A3PEL_LErOx0",
+		authDomain: "atvconvertor-29be3.firebaseapp.com",
+		databaseURL: "https://atvconvertor-29be3.firebaseio.com",
+		projectId: "atvconvertor-29be3",
+		storageBucket: "atvconvertor-29be3.appspot.com",
+		messagingSenderId: "848588276406",
+		appId: "1:848588276406:web:2d0591a6f6a49f837cdc17",
+		measurementId: "G-Z2DF70VNX9"
+	};
+	firebase.initializeApp(firebaseConfig);
+	var db = firebase.firestore();
+	db.collection("currency").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.rate}`);
+		alert(doc.rate);
+    });
+});	
+</script>
+
 </html>
