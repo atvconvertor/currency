@@ -21,23 +21,28 @@
 		.panel {
 			background: #333333;
 			border: solid white;
+
 		}
 
 		.results {
 			font-size: 1em;
-			color: #FFFFFFF;
+			color: #FFFFFF;
+
 		}
 
 		.dropdown {
-			margin-bottom: 50px;
+			margin-bottom: 30px;
+
 		}
 
 		.inline-block {
+			
 			display: inline-block;
+
 		}
 
 		.center {
-			width: 60%;
+			width: 115%;
 			margin: 0 auto 10px;
 		}
 
@@ -45,6 +50,53 @@
 			font-size: 22px;
 			color: white;
 		}
+
+
+
+		.col-25 {
+		  float: left;
+		  width: 5%;
+		  margin-top: 25px;
+		}
+
+		.col-75 {
+		  float: left;
+		  width: 86%;
+		  margin-top: 5px;
+		}
+
+		/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  font-size:18px;
+		 
+		}
+
+		/* Firefox */
+		input[type=number] {
+		  -moz-appearance:textfield;
+		  font-size:18px;
+		}
+
+		output::-webkit-outer-spin-button,
+		output::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  font-size:18px;
+		  margin: 0;
+		  width: 512px;
+		 
+		}
+
+		output[type=number] {
+		  -moz-appearance:textfield;
+		  font-size:18px;
+		  margin-top: 20px;
+		  width: 512px;
+		 
+		}
+
+
 	</style>
 
 </head>
@@ -71,7 +123,7 @@
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-6 col-md-offset-3">
 				<div class="panel panel-primary text-center">
 					<div class="panel-heading">
 						<h4 class="panel-title">Currency Converter</h4>
@@ -79,29 +131,34 @@
 					<div class="error">
 						Please enter numeric value
 					</div>
-					<div class="panel-body">
-						<form class="form-vertical">
 
-							<div class="form-group center">
-								<input type="number" class="amount form-control" placeholder="Enter Currency" min="1" id="inputAmount">
+					<div class="panel-body">
+
+						<form class="form-vertical center">
+
+							<div class="form-group">
+
+  							<div class="col-75">
+							<input type="number" class="amount form-control" placeholder="£ GBP" min="1" id="inputAmount">  
 							</div>
 
-							<div class="form-group inline-block">
+							</div>
+
+							<div class="col-25">
 								<label id="gbp">
-									<span>
-										<img src="https://image.flaticon.com/icons/svg/330/330425.svg" width="40px" height="30px">
-									</span>
-									0 £ (British Pound) =
+							
 								</label>
 
 							</div>
 
-							<div class="form-group inline-block">
+							<div class="col-75">
 								<label id="usd">
 									<span>
-										<img src="https://image.flaticon.com/icons/svg/330/330459.svg" width="40px" height="30px">
+									
+										<output type="number" class="amount form-control" width="300px" min="1" id="inputAmount">
 									</span>
-									0 $ (US Dollar)
+									
+									<!-- 0 $(US Dollar) -->
 								</label>
 
 							</div>
@@ -118,7 +175,7 @@
 
 
 	<!-- Money pics -->
-<!-- 	<div class="container">
+	<!-- <div class="container">
 		<div class="row">
 			<div class="col-md-4">
 				<div class="thumbnail">
@@ -183,16 +240,15 @@
 	$("#gbp").empty();
 	$("#usd").empty();
 	$("#gbp").append(`
-		<span>
-			<img src="https://image.flaticon.com/icons/svg/330/330425.svg" width="40px" height="30px">
-		</span>
-		0 £ (British Pound) =
+
 		`);
+		
+
 	$("#usd").append(`
+		
 		<span>
-			<img src="https://image.flaticon.com/icons/svg/330/330459.svg" width="40px" height="30px">
-		</span>
-		0 $ (US Dollar)
+			<output type="number" class="amount form-control"  id="inputAmount">
+		</span>							
 		`);
 	let covertedRate = inputAmount * covertRate;
 	$("#inputAmount").keyup(function (event) {
@@ -200,16 +256,15 @@
 		$("#gbp").empty();
 		$("#usd").empty();
 		$("#gbp").append(`
-		<span>
-			<img src="https://image.flaticon.com/icons/svg/330/330425.svg" width="40px" height="30px">
-		</span>
-		${inputAmount} £ (British Pound) =
+
+		
+		
 		`);
 		$("#usd").append(`
-		<span>
-			<img src="https://image.flaticon.com/icons/svg/330/330459.svg" width="40px" height="30px">
-		</span>
-		${covertRate * inputAmount} $ (US Dollar)
+		<img src="https://image.flaticon.com/icons/svg/1148/1148842.svg" width="40px" height="30px"> 
+
+		<output type="number" align="left" class="amount form-control" min="1" id="inputAmount">
+		$${covertRate * inputAmount} 
 		`);
 	});
 
